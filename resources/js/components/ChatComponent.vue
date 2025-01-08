@@ -5,7 +5,7 @@
             <span :class="isUserOnline ? 'bg-green-500' : 'bg-red-500'"
                 class="inline-block w-3 h-3 rounded-full rounded-full"></span>
         </div>
-    
+
 
         <!-- Message -->
         <div ref="messageContainer" class="overflow-y-auto flex-1 flex flex-col-reverse border-t border-gray-200  ">
@@ -13,7 +13,7 @@
                 <div v-for="message in messages" :key="message.id"
                     :class="{ 'text-right': message.sender_id === currentUser.id }" class="mb-4">
 
-                    <div :class="message.sender_id === currentUser.id ? 'bg-gray-200 text-yellow-800' 'text-right' : 'text-left text-gray-800 dark:text-gray-100'"
+                    <div :class="message.sender_id === currentUser.id ? 'bg-gray-200 text-yellow-800 '  : 'text-left text-gray-800 dark:text-gray-100'"
                         class="inline-block px-4 py-2 rounded-lg">
 
                         <p>{{ message.text }}</p>
