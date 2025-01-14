@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\MessageSend;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Events\MessageSent;
+use App\Models\ChatMessage;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
@@ -65,7 +71,7 @@ class ChatController extends Controller
 
         ]);
 
-        broadcast(new MessageSent($message))->toOthers();
+        broadcast(new MessageSend($message))->toOthers();
 
         return response()->json([
             'success' => true,
